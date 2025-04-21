@@ -86,3 +86,16 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.nav-gradient {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
