@@ -32,7 +32,7 @@ body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    --radius: 0.65rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -41,6 +41,89 @@ body {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --text-primary: #34322d;
+    --text-secondary: #535350;
+    --text-tertiary: #858481;
+    --text-disable: #b9b9b7;
+    --text-brand: #0081f2;
+    --text-onblack: #fff;
+    --text-white: #fff;
+    --text-white-tsp: #ffffff99;
+    --theme-text-primary: #262626;
+    --logo-color: #34322d;
+    --background-gray-main: #f8f8f7;
+    --background-white-main: #fff;
+    --background-menu-white: #fff;
+    --background-tsp-menu-white: #ffffff14;
+    --background-tsp-card-gray: #37352f0a;
+    --background-nav: #ebebeb;
+    --background-card: #fafafa;
+    --background-mask: #000000a6;
+    --background-card-gray: #fafafa;
+    --border-main: #0000000f;
+    --border-white: #ffffff33;
+    --border-btn-main: #0000001f;
+    --border-input-active: #0081f280;
+    --border-light: #0000000a;
+    --border-dark: #0000001f;
+    --border-primary: #4f59661f;
+    --icon-primary: #34322d;
+    --icon-secondary: #535350;
+    --icon-tertiary: #858481;
+    --icon-disable: #b9b9b7;
+    --icon-brand: #0081f2;
+    --icon-onblack: #fff;
+    --icon-white: #fff;
+    --icon-white-tsp: #ffffff99;
+    --function-error: #f25a5a;
+    --function-success: #25ba3b;
+    --function-warning: #efa201;
+    --function-error-tsp: #f25a5a14;
+    --function-warning-tsp: #efa2011f;
+    --fill-blue: #0081f214;
+    --fill-tsp-white-main: #37352f0f;
+    --fill-tsp-white-dark: #37352f14;
+    --fill-tsp-white-light: #37352f0a;
+    --fill-tsp-gray-dark: #37352f14;
+    --fill-tsp-gray-main: #37352f0a;
+    --fill-white: #fff;
+    --fill-black: #28282973;
+    --fill-gray: #f8f8f7;
+    --Button-primary-black: #1a1a19;
+    --Button-primary-white: #fff;
+    --Button-primary-brand: #0081f2;
+    --Button-primary-brand-disabled: #7cbdf5;
+    --Button-secondary-brand: #0081f21a;
+    --Button-secondary-error-border: #f25a5a80;
+    --Button-secondary-error-fill: #fff;
+    --Button-secondary-main: #fff;
+    --Button-secondary-gray: #37352f0f;
+    --tab-fill: rgba(0, 0, 0, .04);
+    --tab-active-black: #1a1a19;
+    --shadow-L: #0000003d;
+    --shadow-M: #0000001f;
+    --shadow-S: #00000014;
+    --shadow-XS: #0000000f;
+    --shadows-inner-0: #ffffff00;
+    --shadows-inner-1: #16191d14;
+    --shadows-inner-2: #16191d1f;
+    --shadows-drop-1: #16191d08;
+    --shadows-drop-2: #16191d0a;
+    --shadows-drop-3: #16191d14;
+    --shadows-drop-4: #16191d1f;
+    --shadows-highlight-1: #cce5ff;
+    --shadows-highlight-2: #1487fa;
+    --shadows-danger-1: #fed7d7;
+    --shadows-danger-2: #ee3a3a;
+    --shadows-card-border: #16191d1f;
+    --shadows-card-border-2: #16191d1f;
+    --Tooltips-main: #000000e6;
+    --gradual-white-0: #ffffff00;
+    --gradual-gray-100: #ffffff00;
+    --gradual-gray-0: #ffffff00;
+    --gradual-dark-20: #00000033;
+    --fill-input-chat: #fff;
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -75,6 +158,89 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --text-primary: #34322d;
+    --text-secondary: #535350;
+    --text-tertiary: #858481;
+    --text-disable: #b9b9b7;
+    --text-brand: #0081f2;
+    --text-onblack: #fff;
+    --text-white: #fff;
+    --text-white-tsp: #ffffff99;
+    --theme-text-primary: #262626;
+    --logo-color: #34322d;
+    --background-gray-main: #f8f8f7;
+    --background-white-main: #fff;
+    --background-menu-white: #fff;
+    --background-tsp-menu-white: #ffffff14;
+    --background-tsp-card-gray: #37352f0a;
+    --background-nav: #ebebeb;
+    --background-card: #fafafa;
+    --background-mask: #000000a6;
+    --background-card-gray: #fafafa;
+    --border-main: #0000000f;
+    --border-white: #ffffff33;
+    --border-btn-main: #0000001f;
+    --border-input-active: #0081f280;
+    --border-light: #0000000a;
+    --border-dark: #0000001f;
+    --border-primary: #4f59661f;
+    --icon-primary: #34322d;
+    --icon-secondary: #535350;
+    --icon-tertiary: #858481;
+    --icon-disable: #b9b9b7;
+    --icon-brand: #0081f2;
+    --icon-onblack: #fff;
+    --icon-white: #fff;
+    --icon-white-tsp: #ffffff99;
+    --function-error: #f25a5a;
+    --function-success: #25ba3b;
+    --function-warning: #efa201;
+    --function-error-tsp: #f25a5a14;
+    --function-warning-tsp: #efa2011f;
+    --fill-blue: #0081f214;
+    --fill-tsp-white-main: #37352f0f;
+    --fill-tsp-white-dark: #37352f14;
+    --fill-tsp-white-light: #37352f0a;
+    --fill-tsp-gray-dark: #37352f14;
+    --fill-tsp-gray-main: #37352f0a;
+    --fill-white: #fff;
+    --fill-black: #28282973;
+    --fill-gray: #f8f8f7;
+    --Button-primary-black: #1a1a19;
+    --Button-primary-white: #fff;
+    --Button-primary-brand: #0081f2;
+    --Button-primary-brand-disabled: #7cbdf5;
+    --Button-secondary-brand: #0081f21a;
+    --Button-secondary-error-border: #f25a5a80;
+    --Button-secondary-error-fill: #fff;
+    --Button-secondary-main: #fff;
+    --Button-secondary-gray: #37352f0f;
+    --tab-fill: rgba(0, 0, 0, .04);
+    --tab-active-black: #1a1a19;
+    --shadow-L: #0000003d;
+    --shadow-M: #0000001f;
+    --shadow-S: #00000014;
+    --shadow-XS: #0000000f;
+    --shadows-inner-0: #ffffff00;
+    --shadows-inner-1: #16191d14;
+    --shadows-inner-2: #16191d1f;
+    --shadows-drop-1: #16191d08;
+    --shadows-drop-2: #16191d0a;
+    --shadows-drop-3: #16191d14;
+    --shadows-drop-4: #16191d1f;
+    --shadows-highlight-1: #cce5ff;
+    --shadows-highlight-2: #1487fa;
+    --shadows-danger-1: #fed7d7;
+    --shadows-danger-2: #ee3a3a;
+    --shadows-card-border: #16191d1f;
+    --shadows-card-border-2: #16191d1f;
+    --Tooltips-main: #000000e6;
+    --gradual-white-0: #ffffff00;
+    --gradual-gray-100: #ffffff00;
+    --gradual-gray-0: #ffffff00;
+    --gradual-dark-20: #00000033;
+    --fill-input-chat: #fff;
   }
 }
 
@@ -85,4 +251,26 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid rgb(229 229 229 / var(--tw-border-opacity, 1));
+  -webkit-text-fill-color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+  -webkit-box-shadow: 0 0 0px 1000px #253341 inset;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition: background-color 5000s ease-in-out 0s;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+
+.font-serif {
+  font-family: 'Libre Baskerville', serif;
 }
