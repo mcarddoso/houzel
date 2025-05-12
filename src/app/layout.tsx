@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={`font-grotesk ${geistMono.variable} bg-white`}>
+        <body className={`font-grotesk ${geistMono.variable} bg-[var(--background-gray-main)]`}>
           {/* <ThemeProvider
             attribute="class"
             defaultTheme="light"

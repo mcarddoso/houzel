@@ -34,7 +34,7 @@ const Card = () => {
   };
 
   return (
-    <section className="cursor-pointer perspective-[1200px] mt-24">
+    <section className="cursor-pointer relative [perspective:800px] flex flex-col items-center justify-center h-[507px] w-[900px] max-xl:h-[500px] max-xl:w-[890px] max-lg:h-[400px] max-lg:w-[712px] max-md:h-[196px] max-md:w-[350px] mt-24">
       <div
         ref={cardRef}
         // onClick={handleClick}
@@ -42,7 +42,7 @@ const Card = () => {
           transform: `rotateY(${mousePos.x}deg) rotateX(${mousePos.y}deg)`,
           transition: "transform 0.2s cubic-bezier(0.22, 1, 0.36, 1)",
         }}
-        className="relative [transform-style:preserve-3d] w-[900px] h-[507px] rounded-[18px] bg-black/10"
+        className="relative [transform-style:preserve-3d] w-full h-full rounded-[18px] bg-black/10"
       >
         {/* <iframe
           src="https://www.youtube.com/embed/K27diMbCsuw?si=w5CnjfKPdzDfAXch"

@@ -21,6 +21,12 @@ import {
 export default function Sidebar() {
     const user = useUser();
 
+    if(!user.isLoaded) {
+        return (
+          <main className="bg-neutral-200 animate-pulse"></main>
+        )
+    }
+
     return (
         <aside className="max-w-0 lg:max-w-[360px] w-full flex flex-col overflow-hidden bg-[var(--background-nav)] h-full opacity-100 translate-x-0">
             <div className="h-full w-full flex flex-col items-start">
