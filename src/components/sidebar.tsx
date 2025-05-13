@@ -93,10 +93,10 @@ export default function Sidebar() {
                                         </span>
                                     </div>
                                 </HoverCardTrigger>
-                                <HoverCardContent className="w-[280px] m-3">
-                                    <div className="flex justify-between space-x-4">
-                                        <div className="flex flex-col space-y-2 w-full">
-                                            <div className="flex items-center gap-[6px] cursor-pointer flex-1 min-w-0 max-w-fit">
+                                <HoverCardContent className="w-[280px] m-3 p-1 rounded-xl">
+                                    <div className="flex justify-between space-x-2">
+                                        <div className="flex flex-col w-full">
+                                            <div className="flex items-center gap-[10px] cursor-pointer flex-1 min-w-0 max-w-fit p-3">
                                                 <div className="relative flex items-center justify-center font-bold cursor-pointer flex-shrink-0">
                                                     <Image 
                                                         src={user.user?.imageUrl ?? 'https://www.svgrepo.com/show/452030/avatar-default.svg'} 
@@ -111,19 +111,13 @@ export default function Sidebar() {
                                                     <span className="text-sm leading-5 font-normal text-[var(--text-tertiary)] truncate">{user.user?.emailAddresses[0].emailAddress}</span>
                                                 </span>
                                             </div>
+                                            <div className="h-[1px] my-1 bg-[var(--border-main)]"></div>
                                             <SignOutButton>
                                                 <Button variant="ghost" className="w-full items-center justify-start">
                                                     <LogOut color="red" />
                                                     Sair
                                                 </Button>
                                             </SignOutButton>
-                                            <div className="h-[1px] bg-[var(--border-main)]"></div>
-                                            <div className="flex items-center pt-2">
-                                                <CalendarIcon className="mr-2 h-4 w-4 opacity-70" />{" "}
-                                                <span className="text-xs text-muted-foreground">
-                                                    Entrou em {user.user?.createdAt!.toLocaleDateString("pt-BR", {})}
-                                                </span>
-                                            </div>
                                         </div>
                                     </div>
                                 </HoverCardContent>

@@ -17,13 +17,33 @@ import {
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link";
 import Hourglass from "../../../public/hourglass";
+import HourglassPNG from "../../../public/Hourglass.png";
+import Image from "next/image";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import React from "react";
 
 export default function Navbar() {
+
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
   return (
     <div className="flex flex-col items-center justify-between">
       <div className="top-0 left-0 w-full z-[2] flex items-center gap-2 py-3 px-4 border-b border-[var(--border-main)] bg-[var(--background-gray-main)] lg:hidden ">
         <div className="relative w-9 h-9 bg-[var(--Button-primary-white)] rounded-lg border border-[var(--border-main)] flex items-center justify-center text-[var(--text-primary)]">
-
+          <Image
+            src={HourglassPNG}
+            width={20}
+            alt="houzel"
+          />
         </div>
         <div className="flex flex-col justify-center flex-1">
           <div className="text-[var(--text-primary)] text-sm font-semibold">
@@ -100,11 +120,27 @@ export default function Navbar() {
               <span className="text-sm font-medium">Comece já</span>
             </Button>
           </Link>
-          <Link href="/sign-in" className="lg:hidden block">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" color="var(--icon-primary)"><g clip-path="url(#:R3j4bqqdb:_clip0)"><path d="M3 12H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 18H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 6H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g><defs><clipPath id=":R3j4bqqdb:_clip0"><rect width="24" height="24" fill="white"></rect></clipPath></defs></svg>
-          </Link>
+          <div className="lg:hidden block" onClick={() => setMenuOpen(!menuOpen)}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" color="var(--icon-primary)"><g clipPath="url(#:R3j4bqqdb:_clip0)"><path d="M3 12H21" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path><path d="M3 18H21" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path><path d="M3 6H21" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path></g><defs><clipPath id=":R3j4bqqdb:_clip0"><rect width="24" height="24" fill="white"></rect></clipPath></defs></svg>
+          </div>
         </div>
       </div>
+      { menuOpen && (
+        <>
+          <div className="fixed top-[130px] left-0 w-full h-full duration-150 bg-black opacity-[0.6] z-[89]" onClick={() => setMenuOpen(!menuOpen)}></div>
+          <div className="absolute w-full top-[115px] z-[90]">
+            <div className="px-[20px] [background:#fefefe] w-full">
+              <div className="h-[64px] flex items-center text-[var(--theme-text-primary)] text-[16px] font-semibold leading-[120%]">Casos de uso</div>
+              <div className="h-[64px] flex items-center text-[var(--theme-text-primary)] text-[16px] font-semibold leading-[120%]">Comunidade</div>
+              <div className="h-[64px] flex items-center text-[var(--theme-text-primary)] text-[16px] font-semibold leading-[120%]">Benchmarks</div>
+              <div className="h-[64px] flex items-center text-[var(--theme-text-primary)] text-[16px] font-semibold leading-[120%]">Pricing</div>
+              <Link href="/sign-in" className="h-[64px] flex items-center text-[var(--theme-text-primary)] text-[16px] font-semibold leading-[120%]">
+                Comece já
+              </Link>
+            </div>
+          </div>
+        </>
+      ) }
     </div>
   )
 }

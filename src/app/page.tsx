@@ -164,7 +164,7 @@ export default function Home() {
 
         <div className="px-4 md:px-[22px] max-md:px-[8px] max-md:mt-[0px] relative flex justify-center mt-[250px]" id="use-cases">
           <div className="flex flex-col items-center px-0 rounded-[64px] w-full max-w-[1608px] max-md:bg-transparent max-md:py-[64px] max-md:gap-[30px] pt-40 max-md:pt-[80px] max-md:pb-[0px] pb-5 gap-[40px]">
-            <div className="flex flex-col justify-center items-center gap-8 max-md:gap-[16px] self-stretch flex-wrap !gap-[60px]">
+            <div className="flex flex-col justify-center items-center max-md:gap-[16px] self-stretch flex-wrap !gap-[60px] mb-[60px]">
               <div className="flex justify-center items-center flex-col opacity-1 animate-text-fade-in">
                 <div className="text-[var(--text-tertiary)] text-center text-lg font-[500] leading-[24px] mb-[20px] tracking-[0.36px]">Casos de uso</div>
                 <div className="self-stretch text-black text-center text-5xl max-md:text-[24px] font-medium leading-[140%] font-serif">
