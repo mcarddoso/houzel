@@ -1,0 +1,9 @@
+-- AlterTable
+ALTER TABLE "chats" ADD COLUMN     "deletedAt" TIMESTAMP(3),
+ADD COLUMN     "description" TEXT,
+ADD COLUMN     "title" TEXT,
+ADD COLUMN     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "messages" ADD COLUMN     "deletedAt" TIMESTAMP(3),
+ADD COLUMN     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;

@@ -41,25 +41,18 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body className={`font-grotesk ${geistMono.variable} bg-[var(--background-gray-main)]`}>
-          {/* <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          > */}
-            <SignedOut>
-              {children}
-            </SignedOut>
-            <SignedIn>
-              <div className="flex flex-row w-full h-screen overflow-hidden">
-                <Sidebar />
-                <div className="flex flex-col w-full h-screen overflow-y-scroll">
-                  {/* <Nav /> */}
-                  {children}
-                </div>
+          <SignedOut>
+            {children}
+          </SignedOut>
+          <SignedIn>
+            <div className="flex flex-row w-full h-screen overflow-hidden">
+              <Sidebar />
+              <div className="flex flex-col w-full h-screen overflow-y-scroll">
+                {/* <Nav /> */}
+                {children}
               </div>
-            </SignedIn>
-          {/* </ThemeProvider> */}
+            </div>
+          </SignedIn>
         </body>
       </html>
     </ClerkProvider>

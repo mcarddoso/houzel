@@ -52,7 +52,7 @@ export default function Essay() {
     return (
         <main className="flex min-h-screen flex-col w-full items-center justify-start bg-[#FBFBFB] pt-16 lg:pt-12 md:pt-12 dark:bg-[#191919]">
             <div className="max-w-screen-xl w-full mx-auto py-6 px-4">
-                <Link href={'/dashboard'} className="flex items-center gap-2 mb-6 text-sm text-blue-600">
+                <Link href={'/home'} className="flex items-center gap-2 mb-6 text-sm text-blue-600">
                     <ArrowLeft size={18} className="text-blue-600" />
                     Voltar
                 </Link>

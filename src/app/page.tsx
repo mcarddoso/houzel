@@ -318,6 +318,6 @@ export default function Home() {
       </main>
     )
   } else {
-    redirect('/dashboard')
+    redirect('/home')
   }
 }

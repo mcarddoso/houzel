@@ -1,7 +1,7 @@
 'use client'
 
 import { Bell, CalendarIcon, Cog, Command, LogOut, Plus } from "lucide-react";
-import { SignOutButton, useUser } from "@clerk/nextjs";
+import { SignOutButton, useAuth, useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { PanelRightOpenIcon } from "./ui/panel-right-open";
@@ -17,15 +17,49 @@ import {
     HoverCardContent,
     HoverCardTrigger,
 } from "@/components/ui/hover-card"
+import { useEffect, useState } from "react";
+import { redirect, useRouter } from "next/navigation";
+
+type ChatSummary = { id: string; createdAt: string, title: string | null, description: string | null, rawCompletion: string | null };
 
 export default function Sidebar() {
+    const { isLoaded: authLoaded, isSignedIn } = useAuth();
     const user = useUser();
-
-    if(!user.isLoaded) {
-        return (
-          <main className="bg-neutral-200 animate-pulse"></main>
-        )
+    const [chats, setChats] = useState<ChatSummary[]>([]);
+    const router = useRouter()
+  
+    useEffect(() => {
+      if (!authLoaded || !isSignedIn) return;
+  
+      fetch("/api/chats")
+        .then((res) => res.json())
+        .then((data: ChatSummary[]) => setChats(data))
+        .catch(console.error);
+    }, [authLoaded, isSignedIn]);
+  
+    if (!authLoaded) {
+      return <main className="bg-neutral-200 animate-pulse h-full" />;
     }
+  
+    if (!isSignedIn || !user) {
+      return <div>Please sign in to see your chats.</div>;
+    }
+
+    function formatChatDate(isoDate: string): string {
+        const date = new Date(isoDate);
+        const now  = new Date();
+        const oneWeekMs = 7 * 24 * 60 * 60 * 1000;
+      
+        if (now.getTime() - date.getTime() < oneWeekMs) {
+          return date.toLocaleDateString("pt-BR", { weekday: "long" });
+        } else {
+          return date.toLocaleDateString("pt-BR", {
+            day:   "2-digit",
+            month: "2-digit",
+            year:  "numeric",
+          });
+        }
+      }
 
     return (
         <aside className="max-w-0 lg:max-w-[360px] w-full flex flex-col overflow-hidden bg-[var(--background-nav)] h-full opacity-100 translate-x-0">
@@ -59,7 +93,9 @@ export default function Sidebar() {
                     </div>
                 </div>
                 <div className="px-3 mb-1 flex justify-center flex-shrink-0 w-full">
-                    <Button className="flex text-foreground min-w-[36px] w-full items-center justify-center gap-1.5 rounded-md h-[36px] bg-[var(--Button-primary-white)] hover:bg-white/20 dark:hover:bg-black/60 cursor-pointer shadow-[0px_0.5px_3px_0px_var(--shadow-S)]">
+                    <Button 
+                    onClick={() => router.push(`/home/`)}
+                    className="flex text-foreground min-w-[36px] w-full items-center justify-center gap-1.5 rounded-md h-[36px] bg-[var(--Button-primary-white)] hover:bg-white/20 dark:hover:bg-black/60 cursor-pointer shadow-[0px_0.5px_3px_0px_var(--shadow-S)]">
                         <Plus className="w-6 h-6" />
                         Nova redação
                         <div className="flex items-center gap-0.5">
@@ -71,6 +107,49 @@ export default function Sidebar() {
                             </span>
                         </div>
                     </Button>
+                </div>
+
+                <div className="flex flex-col flex-1 min-h-0 overflow-auto pt-2 pb-5 overflow-x-hidden w-full">
+                    {chats.map((chat) => (
+                        <div 
+                            key={chat.id} 
+                            className="px-2" 
+                            onClick={() => router.push(`/home/${chat.id}`)}
+                        >
+                            <div className="group flex h-14 cursor-pointer items-center gap-2 rounded-[10px] px-2 transition-colors hover:bg-[var(--fill-tsp-gray-main)]">
+                                <div className="relative">
+                                    <div className="h-8 w-8 rounded-full flex items-center justify-center relative bg-[var(--fill-tsp-white-dark)]">
+                                        <div className="relative h-4 w-4 object-cover brightness-0 opacity-75 dark:opacity-100 dark:brightness-100">
+                                            <Image 
+                                                src="https://files.manuscdn.com/assets/icon/session/file-text-star.svg"
+                                                alt={ chat.title ?? "Sem título" } 
+                                                className="w-full h-full object-cover" 
+                                                width={16}
+                                                height={16}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="min-w-20 flex-1 transition-opacity opacity-100">
+                                    <div className="flex items-center gap-1 overflow-x-hidden">
+                                        <span className="truncate text-sm font-medium text-[var(--text-primary)] flex-1 min-w-0">
+                                            <span>
+                                                { chat.title ?? "Sem título" }
+                                            </span>
+                                        </span>
+                                        <span className="text-[var(--text-tertiary)] text-xs whitespace-nowrap capitalize">
+                                            { formatChatDate(chat.createdAt) }
+                                        </span>
+                                    </div>
+                                    <div className="flex items-center gap-2 h-[18px] relative">
+                                        <div className="min-w-0 flex-1 truncate text-xs text-[var(--text-tertiary)]">
+                                            {chat.description ?? "Sem descrição"}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
 
                 <footer className="mt-auto px-3 overflow-x-hidden border-t border-[var(--border-main)] w-full">
